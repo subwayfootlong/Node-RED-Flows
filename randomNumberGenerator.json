@@ -1,0 +1,80 @@
+[
+    {
+        "id": "4975cb2ee7ba3a75",
+        "type": "tab",
+        "label": "Random Number Generator",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "05ba2dd6a8c1aba7",
+        "type": "function",
+        "z": "4975cb2ee7ba3a75",
+        "name": "",
+        "func": "msg.payload=Math.floor(Math.random() * msg.int)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 180,
+        "wires": [
+            [
+                "289c4c73d3c2e45d"
+            ]
+        ]
+    },
+    {
+        "id": "6b9dc382d1dd9159",
+        "type": "inject",
+        "z": "4975cb2ee7ba3a75",
+        "name": "Random Number Injector",
+        "props": [
+            {
+                "p": "int",
+                "v": "10",
+                "vt": "num"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 320,
+        "y": 180,
+        "wires": [
+            [
+                "05ba2dd6a8c1aba7"
+            ]
+        ]
+    },
+    {
+        "id": "538576cc3fd4b5de",
+        "type": "comment",
+        "z": "4975cb2ee7ba3a75",
+        "name": "Change Range here",
+        "info": "",
+        "x": 300,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "289c4c73d3c2e45d",
+        "type": "debug",
+        "z": "4975cb2ee7ba3a75",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 180,
+        "wires": []
+    }
+]
