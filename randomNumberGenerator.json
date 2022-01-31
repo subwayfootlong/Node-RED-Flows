@@ -1,13 +1,5 @@
 [
     {
-        "id": "4975cb2ee7ba3a75",
-        "type": "tab",
-        "label": "Random Number Generator",
-        "disabled": true,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "05ba2dd6a8c1aba7",
         "type": "function",
         "z": "4975cb2ee7ba3a75",
