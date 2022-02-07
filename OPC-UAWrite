@@ -1,0 +1,185 @@
+[
+    {
+        "id": "10a2e1dea1764b90",
+        "type": "group",
+        "z": "cb5803328a48bc4a",
+        "name": "Write to OPCUA Example",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "beb507d0cc97044e",
+            "0dc908b4ac522f30",
+            "1c5f5ec34ef80b12",
+            "96bd259460e6a713",
+            "1a2e6ecd4a7f3634",
+            "1d5fa099f5f36419"
+        ],
+        "x": 574,
+        "y": 359,
+        "w": 732,
+        "h": 182
+    },
+    {
+        "id": "beb507d0cc97044e",
+        "type": "OpcUa-Client",
+        "z": "cb5803328a48bc4a",
+        "g": "10a2e1dea1764b90",
+        "endpoint": "5f1e32854a6d6ea7",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "folderName4PKI": "",
+        "name": "OPC UA Write",
+        "x": 960,
+        "y": 420,
+        "wires": [
+            [
+                "1c5f5ec34ef80b12"
+            ]
+        ]
+    },
+    {
+        "id": "0dc908b4ac522f30",
+        "type": "inject",
+        "z": "cb5803328a48bc4a",
+        "g": "10a2e1dea1764b90",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=2;s=U-7526M.DO1;datatype=Boolean",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 750,
+        "y": 400,
+        "wires": [
+            [
+                "beb507d0cc97044e"
+            ]
+        ]
+    },
+    {
+        "id": "1c5f5ec34ef80b12",
+        "type": "debug",
+        "z": "cb5803328a48bc4a",
+        "g": "10a2e1dea1764b90",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "96bd259460e6a713",
+        "type": "OpcUa-Client",
+        "z": "cb5803328a48bc4a",
+        "g": "10a2e1dea1764b90",
+        "endpoint": "5f1e32854a6d6ea7",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": "10",
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "folderName4PKI": "",
+        "name": "OPC UA Read",
+        "x": 960,
+        "y": 500,
+        "wires": [
+            [
+                "1c5f5ec34ef80b12"
+            ]
+        ]
+    },
+    {
+        "id": "1a2e6ecd4a7f3634",
+        "type": "inject",
+        "z": "cb5803328a48bc4a",
+        "g": "10a2e1dea1764b90",
+        "name": "ns=2;s=U-7526M.DO1",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=2;s=U-7526M.DO1",
+        "x": 720,
+        "y": 500,
+        "wires": [
+            [
+                "96bd259460e6a713"
+            ]
+        ]
+    },
+    {
+        "id": "1d5fa099f5f36419",
+        "type": "inject",
+        "z": "cb5803328a48bc4a",
+        "g": "10a2e1dea1764b90",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=2;s=U-7526M.DO1;datatype=Boolean",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 750,
+        "y": 440,
+        "wires": [
+            [
+                "beb507d0cc97044e"
+            ]
+        ]
+    },
+    {
+        "id": "5f1e32854a6d6ea7",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://192.168.1.5:48010",
+        "secpol": "None",
+        "secmode": "None",
+        "login": false
+    }
+]
