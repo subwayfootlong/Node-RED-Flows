@@ -1,0 +1,19 @@
+[
+    {
+        "id": "7d0f4d8138b47892",
+        "type": "function",
+        "z": "ed10e0a90668297f",
+        "name": "",
+        "func": "var counter = flow.get(\"counter\") || 0\ncounter ++\nflow.set('counter',counter)\nmsg.payload=counter\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    }
+]
