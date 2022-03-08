@@ -1,0 +1,156 @@
+[
+    {
+        "id": "b38448d7f1fc453c",
+        "type": "inject",
+        "z": "c331cb196504d723",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "value1",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 360,
+        "wires": [
+            [
+                "ff0d055c56e52631"
+            ]
+        ]
+    },
+    {
+        "id": "ff0d055c56e52631",
+        "type": "join",
+        "z": "c331cb196504d723",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 350,
+        "y": 380,
+        "wires": [
+            [
+                "c1efbc7e475527f1"
+            ]
+        ]
+    },
+    {
+        "id": "c1efbc7e475527f1",
+        "type": "function",
+        "z": "c331cb196504d723",
+        "name": "",
+        "func": "msg.payload = [\n    {\n        measurement: \"example\",\n        fields:msg.payload\n    }\n]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 380,
+        "wires": [
+            [
+                "767815e523c02fdf",
+                "1bc3daae8041a1c0"
+            ]
+        ]
+    },
+    {
+        "id": "767815e523c02fdf",
+        "type": "influxdb batch",
+        "z": "c331cb196504d723",
+        "influxdb": "6ab3e9154fbe5091",
+        "precision": "",
+        "retentionPolicy": "",
+        "name": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "Initial_Organization",
+        "bucket": "Testing",
+        "x": 720,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "1bc3daae8041a1c0",
+        "type": "debug",
+        "z": "c331cb196504d723",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "c64cce056ceeaf66",
+        "type": "inject",
+        "z": "c331cb196504d723",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "value2",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 400,
+        "wires": [
+            [
+                "ff0d055c56e52631"
+            ]
+        ]
+    },
+    {
+        "id": "6ab3e9154fbe5091",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "Local_InfluxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    }
+]
