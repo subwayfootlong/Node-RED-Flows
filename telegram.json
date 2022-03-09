@@ -1,0 +1,22 @@
+[
+    {
+        "id": "c4bab28d03d614e0",
+        "type": "function",
+        "z": "492c52fc7801d061",
+        "g": "944555143e7c97bf",
+        "name": "Declare Telegram Objects",
+        "func": "msg.payload={\n    content:\"Hello World!\",\n    type:'message',\n    chatId:[]//your chat id\n   }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 780,
+        "wires": [
+            [
+                "3f087a60f909d773"
+            ]
+        ]
+    }
+]
