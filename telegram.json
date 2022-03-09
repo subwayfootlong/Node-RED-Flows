@@ -1,5 +1,39 @@
 [
     {
+        "id": "944555143e7c97bf",
+        "type": "group",
+        "z": "492c52fc7801d061",
+        "name": "Telegram Output for alert",
+        "style": {
+            "label": true,
+            "fill": "#7fb7df",
+            "color": "#000000"
+        },
+        "nodes": [
+            "3f087a60f909d773",
+            "c4bab28d03d614e0"
+        ],
+        "x": 214,
+        "y": 739,
+        "w": 472,
+        "h": 82
+    },
+    {
+        "id": "3f087a60f909d773",
+        "type": "telegram sender",
+        "z": "492c52fc7801d061",
+        "g": "944555143e7c97bf",
+        "name": "",
+        "bot": "d1580cea.43a02",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "c4bab28d03d614e0",
         "type": "function",
         "z": "492c52fc7801d061",
@@ -18,5 +52,29 @@
                 "3f087a60f909d773"
             ]
         ]
+    },
+    {
+        "id": "d1580cea.43a02",
+        "type": "telegram bot",
+        "botname": "Bosch_Rexroth_Bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
     }
 ]
