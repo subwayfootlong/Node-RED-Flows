@@ -1,0 +1,1 @@
+[{"id":"0eb37b11b3aa667f","type":"function","z":"04fbb10eb64d3668","name":"x10-1","func":"for(const key in msg.payload[0].fields){\n    msg.payload[0].fields[key]=msg.payload[0].fields[key]*1e-1\n}\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","libs":[],"x":210,"y":300,"wires":[[]]}]
